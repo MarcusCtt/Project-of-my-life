@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BN Semijoias</title>
+
+    <!-- FavIcon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!--Importação do meu css-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/wave.css">
+
+</head>
+
+
+<body>
+    <header>
+        <nav class="grid nav fixed-top">
+
+            <div class="left-nav">
+                <a href="">
+                    <img src="images/LOGO.png" width="3vh" alt="LOGO" id="logo"> <span>Semijoias</span>
+                </a>
+            </div>
+
+
+            <div class="right-nav flex">
+
+
+                <input type="checkbox" id="menu_for_mobile" onclick="toggleNav()">
+                <label for="menu_for_mobile" class="mobileNav">&#9776;</label>
+
+                <ul class="flex list">
+                    <li>
+                        <div class="btn-group dropend">
+                            <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorias
+                            </button>
+                            <ul class="dropdown-menu">
+                                <!-- Dropdown menu links -->
+                                <form action="/categorias" method="get">
+                                    <li>
+                                        <button type="submit" name="TipoSolicitada" value="1">
+                                            Brincos
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="submit" name="TipoSolicitada" value="3">
+                                            Conjuntos
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="submit" name="TipoSolicitada" value="2">
+                                            Anéis
+                                        </button>
+                                    </li>
+                                    <li>
+
+                                        <button type="submit" name="TipoSolicitada" value="5">
+                                            Pulseiras
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="submit" name="TipoSolicitada" value="4">
+                                            Tornozeleiras
+                                        </button>
+                                    </li>
+                                </form>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <form action="" method="get">
+                            <button type="submit" id="whoweare">
+                                Quem somos
+                            </button>
+                        </form>
+                    </li>
+                    <li>
+
+                        <form action="/cart" method="get">
+                            <button type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-bag-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="/images/background-img-med1.png" alt="Fist slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
+
+
+
+        <div class="card--group">
+
+
+           
+
+
+
+
+
+              <% result.forEach(function(item) { %>
+                <%if(item.quantidade> 0){%>
+
+
+<div class="card">
+    <form action="/product" method="get">
+        <input type="hidden" name="id_produto" value="<%= item.id_produto  %>">
+        <input type="hidden" name="Nome" value="<%= item.Nome  %>">
+        <input type="hidden" name="preco" value="<%= item.preco %>">
+        <input type="hidden" name="desconto" value="<%= item.desconto  %>">
+        <input type="hidden" name="image" value="<%= item.image %>">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="descricao" value="<%= item.descricao %>">
+        <input type="hidden" name="quantidade" value="<%= item.quantidade %>">
+                           
+        <button type="submit">
+
+            <picture>
+                <img src="images/produtos/<%= item.image %>" alt="Product Image"  >
+            </picture>
+                   
+<span></span>
+                <%= item.Nome%>
+            
+        </button>
+    </form>
+
+    <div class="card-footer">
+
+        <div class="card-body">
+            
+            <p class="card-text"><%= item.preco %></p>
+
+    </div>
+        <form action="/add_to_card" method="get">
+           
+                <input type="hidden" name="id_produto" value="<%= item.id_produto  %>">
+                <input type="hidden" name="Nome" value="<%= item.Nome  %>">
+                <input type="hidden" name="preco" value="<%= item.preco %>">
+                <input type="hidden" name="desconto" value="<%= item.desconto  %>">
+                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="image" value="<%= item.image %>">
+                <input type="hidden" name="quantidade" value="<%= item.quantidade %>">
+
+            <button type="submit" >
+                Comprar
+            </button>
+        </form>   
+    </div>
+
+</div>
+
+
+
+                <% } %>
+            <% }) %>
+
+
+
+
+        </div>
+    </main>
+
+    <br><br>
+
+
+
+    <footer>
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social_icon">
+            <li>
+                <a href="https://www.instagram.com/brendanunessemijoias_/" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href=" https://www.facebook.com/brendanunessemijoias/" target="_blank" rel="noopener noreferrer">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href="wa.me/message/KQDSW43QYZGKC1">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+            </li>
+            
+
+        </ul>
+        <ul class="menu">
+            <li>
+                <a href="">Garantia</a>
+            </li>
+            <li>
+                <a href="">A</a>
+            </li>
+        </ul>
+
+    </footer>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
+    <script src="/js/Toggle.js" async></script>
+</body>
+
+</html>

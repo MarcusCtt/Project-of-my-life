@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <title>Carrinho</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- FavIcon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+
+  <link rel="stylesheet" href="css/carrinho.css">
+  <link rel="stylesheet" href="css/wave.css">
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+</head>
+
+<body>
+
+  <header>
+    
+    <header>
+      <nav class="grid nav fixed-top">
+
+          <div class="left-nav">
+              <a href="">
+                  <img src="images/LOGO.png" width="3vh" alt="LOGO" id="logo"> <span>Semijoias</span>
+              </a>
+          </div>
+
+
+          <div class="right-nav flex">
+
+
+              <input type="checkbox" id="menu_for_mobile">
+              <label for="menu_for_mobile" class="mobileNav">&#9776;</label>
+
+              <ul class="flex list">
+
+                  <li>
+                      <form action="" method="get">
+                          <button type="submit">
+                              Quem somos
+                              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                  class="bi bi-chat-heart" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd"
+                                      d="M2.965 12.695a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2Zm-.8 3.108.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125ZM8 5.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+                              </svg>
+                          </button>
+                      </form>
+                  </li>
+                 </ul>
+          </div>
+      </nav>
+  </header>
+  <section>
+
+
+    <div class="cart-title">
+      <h1>Carrinho</h1>
+    </div>
+
+    <div class="produto-area">
+
+      <% if (cart==null ){ %>
+
+        <div class="img--conteiner">
+          <img src="images/cart.svg" alt="">
+        </div>
+
+        <%}else{%>
+          <% if (cart.length===0){ %>
+
+            <div class="img--conteiner">
+              <img src="images/cart.svg" alt="">
+            </div>
+
+
+
+            <% } else { %>
+              <div class="cart_body">
+                <% cart.forEach(function(item) { %>
+
+
+
+                  <div class="product">
+
+                    <div class="product--item">
+
+                      <img src="images/<%= item.image %>" alt="imagem_produto" width="200" height="190">
+
+                      <div class="desc">
+                        <div class="title">
+                          <h4>
+                            <%= item.Nome %>
+                          </h4>
+                          <% if(item.desconto){ %>
+                            <span>
+                              $<%= item.desconto %>
+                            </span>
+                            <% }else { %>
+                              <span>
+                                $<%= item.preco %>
+                              </span>
+                              <% } %>
+                        </div>
+
+                        <form action="/remove_produto" method="post" id="formButton">
+
+                          <input type="hidden" name="id_produto" value="<%= item.id_produto %>">
+                          <button type="submit" id="Remove">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                              class="bi bi-bag-x" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd"
+                                d="M6.146 8.146a.5.5 0 0 1 .708 0L8 9.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 10l1.147 1.146a.5.5 0 0 1-.708.708L8 10.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 10 6.146 8.854a.5.5 0 0 1 0-.708z" />
+                              <path
+                                d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                            </svg> <span id="textForm">Remover</span>
+                          </button>
+
+                        </form>
+                      </div>
+                    </div>
+
+
+
+
+                    <form action="/edit_product_quantity" method="post">
+                      <div class="quanti">
+                        <input type="hidden" value="<%= item.id_produto %>" name="id_produto">
+                        <input type="submit" value="+" class="btn" name="increase_product_quantity" id="B1">
+                        <input type="text" name="quantity" value="<%= item.quantity %>" readonly id="B2">
+                        <input type="submit" value="-" class="btn" name="decrease_product_quantity" id="B3">
+                      </div>
+                    </form>
+
+
+
+
+
+                  </div>
+
+                  <% }) %>
+              </div>
+
+
+
+              <div class="pay">
+                <span> Valor total: <%= total %> reais</span>
+                <form action="/checkout" method="get">
+                  <button type="submit" id="Realizar_Compra" class="submit--cart"> checkout</button>
+                </form>
+              </div>
+
+              <% } %>
+                <% } %>
+
+
+
+  </section>
+
+
+
+
+  <footer>
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social_icon">
+      <li>
+        <a href="https://www.instagram.com/brendanunessemijoias_/" target="_blank" rel="noopener noreferrer">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a href=" https://www.facebook.com/brendanunessemijoias/" target="_blank" rel="noopener noreferrer">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a href="wa.me/message/KQDSW43QYZGKC1">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+      </li>
+
+    </ul>
+    <ul class="menu">
+      <li>
+        <a href="">Garantia</a>
+      </li>
+    </ul>
+
+  </footer>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="/js/Toggle.js" async></script>
+
+</body>
+
+</html>

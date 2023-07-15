@@ -1,0 +1,125 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300&display=swap');
+
+
+
+header{
+margin-bottom:10vh;
+}section{
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 30px;
+    width: 60vw;
+padding: 0;
+
+-webkit-animation: scale-in-ver-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+animation: scale-in-ver-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+background-color:white ;
+}.mother{
+  
+    
+    border:0.5px solid #FFA0A7;
+    border-radius: 30px;
+
+    display: grid;
+    grid-template:100%/ 60% 40% ;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+
+}
+.figure>img{
+    width: 100%;
+    border-radius:30px 0px 0px;
+}
+
+.payday {
+    border-left:0.5px solid #0000005b;
+    padding-left: 1em;
+    margin-top: 1em;
+
+    
+    }
+    
+    
+    .PayPal>button{
+        padding: 1em 2em;
+        background-color:#FFA0A7 ;
+        color: aliceblue;
+        border: none;
+        border-radius: 1em;
+
+        display: flex;
+        justify-content: center;
+        margin-left:20%;
+        transition: border-radius 1s, background-color 1s;
+    }.PayPal>button:hover{
+       
+        border-radius: 2em;
+background-color: #3b7bbf ;
+        
+    }.PayPal>button span{
+margin-left: 0.125em;      
+    }.payday h4{
+        font-family: 'Lato', sans-serif;
+    }.payday h6{
+        margin-top: 1em;
+        font-family: 'Lato', sans-serif;
+        font-size: 0.9rem;
+    }
+ 
+    @-webkit-keyframes scale-in-ver-center {
+        0% {
+          -webkit-transform: scaleY(0);
+                  transform: scaleY(0);
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: scaleY(1);
+                  transform: scaleY(1);
+          opacity: 1;
+        }
+      }
+      @keyframes scale-in-ver-center {
+        0% {
+          -webkit-transform: scaleY(0);
+                  transform: scaleY(0);
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: scaleY(1);
+                  transform: scaleY(1);
+          opacity: 1;
+        }
+      }
+
+
+@media (width<= 550px) {
+
+    .mother{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1em;
+    }.payday{
+       
+       text-align:left;
+       border-left:none;
+       padding-left: 0.5em;
+    }.payday form{
+        margin-top: 1em;
+        display: flex;
+        justify-content:flex-start;
+    }
+    
+}@media (width<= 300px) {
+
+  .PayPal>button{
+    
+    margin-left: .125em;
+    padding: 0.5em 1em;
+   
+}
+  
+}
+.list {
+  margin-top: 180px;
+}

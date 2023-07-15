@@ -1,0 +1,55 @@
+.Painel{
+display: flex;
+flex-direction: column-reverse;
+
+margin-top: 15vh;
+border: solid 1px rgba(0, 0, 0, 0.434);
+border-radius: 8px;
+}
+picture{
+    width: 90%;
+    margin: 0 auto;
+}
+picture img{
+    width: 100%;
+    
+}
+.Painel--text{
+    margin: 0 auto;
+    width: 90%;
+    max-width: 300px;
+}
+.Painel--text--title{
+    font-family: 'Bebas Neue', sans-serif;
+  
+}
+.Painel--text--title h4{
+font-size: 1.125rem;
+}
+.Painel--text--title span{
+    font-size: 1rem;
+    color: rgb(137, 133, 133);
+}
+.Painel--text-desc P{
+    font-size: 1rem;
+
+
+}
+.Painel--text-desc h6{
+   text-decoration: line-through;
+   font-size: 0.9rem;
+
+
+}
+.button{
+    width: 7em;
+align-self: flex-start
+       
+}
+@media (width > 400px){
+    .Painel{
+        
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+}

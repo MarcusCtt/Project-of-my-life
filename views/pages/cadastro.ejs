@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BN Semijoias</title>
+
+
+    <!-- FavIcon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+
+    <!--Importação do meu css-->
+    
+    <link rel="stylesheet" type="text/css" href="css/cadastro.css">
+    <link rel="stylesheet" type="text/css" href="css/wave.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+
+<body>
+
+ 
+
+<header>
+        <nav class="grid nav fixed-top">
+
+            <div class="left-nav">
+                <a href="">
+                    <img src="images/LOGO.png" width="3vh" alt="LOGO" id="logo"> <span>Semijoias</span>
+                </a>
+            </div>
+
+
+            <div class="right-nav flex">
+
+
+                <input type="checkbox" id="menu_for_mobile">
+                <label for="menu_for_mobile" class="mobileNav">&#9776;</label>
+
+                <ul class="flex list">
+
+                    <li>
+                        <form action="/cart" method="get">
+                            <button type="submit">Carrinho</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" method="get">
+                            <button type="submit">Quem somos?</button>
+                        </form>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+
+        
+    </header>
+
+    <div class="casulo">
+        <div class="form">
+            <form action="/place_order" method="post">
+                <div class="img-conteiner">
+                    <img src="images/svg-cadastro.svg" alt="">
+                </div>
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="currentColor" d="M14.58 11.3a3.24 3.24 0 0 0 .71-2a3.29 3.29 0 0 0-6.58 0a3.24 3.24 0 0 0 .71 2a5 5 0 0 0-2 2.31a1 1 0 1 0 1.84.78A3 3 0 0 1 12 12.57a3 3 0 0 1 2.75 1.82a1 1 0 0 0 .92.61a1.09 1.09 0 0 0 .39-.08a1 1 0 0 0 .53-1.31a5 5 0 0 0-2.01-2.31ZM12 10.57a1.29 1.29 0 1 1 1.29-1.28A1.29 1.29 0 0 1 12 10.57ZM18 2H6a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3h2.59l2.7 2.71A1 1 0 0 0 12 22a1 1 0 0 0 .65-.24L15.87 19H18a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Zm1 14a1 1 0 0 1-1 1h-2.5a1 1 0 0 0-.65.24l-2.8 2.4l-2.34-2.35A1 1 0 0 0 9 17H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1Z"/></svg> -->
+
+
+                <div class="input-conteiners">
+
+                    <div class="input-item">
+                        <label for="">Nome</label>
+                        <input placeholder="Paula de Oliveira" name="nome" type="text" required>
+                    </div>
+
+                    <div class="input-item">
+                        <label for="">CPF</label>
+                        <input name="cpf" type="text" id="cpf" data-inputmask="'mask': '99-9999999'" required>
+                    </div>
+
+                    <div class="input-item">
+                        <label for="">Email</label>
+                        <input placeholder="Felipe@gmail.com" name="email" type="email" required>
+                    </div>
+
+                    <div class="input-item">
+                        <label for="">Cidade</label>
+                        <input placeholder="São José dos Campos" name="cidade" type="text" required>
+                    </div>
+
+                    <div class="input-item">
+                        <label for="">Celular</label>
+                        <input placeholder="+12 5524-2562" name="phone" type="text" id="phone-input" required>
+                    </div>
+                    
+                    <div class="input-item">
+                        <label for="">Endereço para envio</label>
+                        <input placeholder="Rua 14 de Abril, 34 - apartamento 5" name="endereco" type="text" id="endereco" required>
+                    </div>
+                    <div class="input-item">
+                        <div class="input-item--checkbox">
+                        <label type="chec" for="">Retirada na loja?</label>
+                        <input  type="checkbox" name="checkbox" >
+                    </div>
+
+                        <div class="input--submit">
+                            <input type="submit" name="checkout_btn" value="Enviar">
+                    </div>
+
+                    </div>
+
+                    
+                </div>
+
+        </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social_icon">
+            <li>
+                <a href="">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href=" ">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+            <li>
+                <a href=" ">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+            </li>
+
+        </ul>
+        <ul class="menu">
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">Sobre nós</a>
+            </li>
+            <li>
+                <a href="">Garantia</a>
+            </li>
+        </ul>
+        <p>Direitos Reservados</p>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <script src="/js/Toggle.js" ></script>
+    <script src="/js/index.js" ></script>
+    <script src="/js/imask.js" ></script>
+ 
+
+
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
