@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var session = require('express-session');
 
+const UploadProduct = require('./public/js/UploadProductPhoto')
 
 require('dotenv').config()
 const paypal = require('paypal-rest-sdk');
@@ -52,7 +53,7 @@ app.get('/', function (req, res) {
         host: "127.0.0.1",
         user: "root",
         password: "",
-        database: ""
+        database: "tcc_project"
     })
 
     con.query("Select * from produto", (err, result) => {
@@ -280,18 +281,7 @@ app.post('/place_order', function (req, res) {
 
 
 
-app.post('insert', function(req, res){
 
-    var con = mysql.createConnection({
-        host: "127.0.0.1",
-        user: "root",
-        password: "",
-        database: "tcc_project"
-    })
-
-con.query('Insert into Product')
-
-})
 
 
 
@@ -318,12 +308,53 @@ app.get('/4dm1n', function (req, res){
      res.render('pages/admin');
 });
 
-app.post('UploadProduct', function(req, res){
+app.post('UploadProduct', UploadProduct.single('ProductImage'), (req, res) =>{
+  
+    var con = mysql.createConnection({
+        host: "127.0.0.1",
+        user: "root",
+        password: "",
+        database: "tcc_project"
+    })
+
+    con.connect((err) => {
+        if (err) {
+            console.log('Erro com o banco');
+
+        } else {
+            var query = "Insert * from Product(Nome, descricao, preco, desconto, quantidade, image, Cat, tipo_id) values ?";
+
+            var values = [
+                [Nome, descricao, preco, desconto, quantidade, image, Cat, tipo_id]
+            ];
+            con.query(query, [values], (err) => {
+                
+               
+            })
+        }
+    })
+    
+
+ 
+ 
+    if(req.file){
+
+return res.json({
+    error:false,
+    message: "Realizado com sucesso"
+})
+
+ } return res.status(400).json({
+    error:true,
+    message: "Não realizado"
+})
+
+
 
 });
 
 
-app.post
+
 
 
 
