@@ -304,6 +304,7 @@ app.get('/categorias', function (req, res){
   
 });
 
+
 app.get('/4dm1n', function (req, res){
      res.render('pages/admin');
 });
